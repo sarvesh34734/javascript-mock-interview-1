@@ -35,6 +35,7 @@ class LinkedList {
 
     // print the linked list
     printLL() {
+        // copy the head to a local variable temphead
         let tempHead = this.head;
         while (tempHead != null) {
             // console.log(head.data + "-->");
@@ -54,7 +55,7 @@ class LinkedList {
     deleteNode() {
         if (this.head == null) {
             return null;
-        } else if (this.head.next == null) { this.size--; return null; }
+        } else if (this.head.next == null) { this.size--; this.head = null; return this.head; }
         else {
             let temp = this.head;
             while (temp.next.next != null) {
@@ -78,6 +79,8 @@ class LinkedList {
     }
 }
 
+
+// test case
 list = new LinkedList();
 list.insert(5);
 list.insert(10);
@@ -86,18 +89,9 @@ list.insert(20);
 list.insert(25);
 list.insert(30);
 list.insert(35);
+// list.printLL();
 while (list.getSize() > 0) {
-    console.log(list.printLL(list.deleteNode()));
+    list.printLL(list.deleteNode());
 }
-    // insert element at the end of the linked list;
 
-
-// insertAt(element, location) 
-// removeFrom(location) 
-// removeElement(element) 
-
-// Helper Methods 
-// isEmpty 
-// size_Of_List 
-// PrintList 
 
